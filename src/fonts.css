@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'Oswald';
+    src: url('./assets/fonts/Oswald-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900; /* because it's a variable font */
+    font-style: normal;
+  }
+
+  body {
+    font-family: 'Oswald', sans-serif;
+  }
