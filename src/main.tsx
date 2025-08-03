@@ -11,8 +11,8 @@ import router from "./routes/index.tsx";
 import { RouterProvider } from "react-router-dom";
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-        <ThemeProvider>
-          <RouterProvider router={router} />
-        </ThemeProvider>
+    <ThemeProvider>
+      <RouterProvider router={router} />
+    </ThemeProvider>
   </StrictMode>
 );
