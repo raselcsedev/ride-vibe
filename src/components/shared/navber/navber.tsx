@@ -1,14 +1,7 @@
-import { FC } from "react";
-import {
-  LayoutDashboard,
-  LogOut,
-  ShoppingBag,
-  User,
-  UserRound,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
+import NavFilterSheet from "@/components/common/shop/nav-filter-sheet";
 import { ModeToggle } from "@/components/mode-toggle";
-import { Link, useLocation } from "react-router-dom";
+import { useAppSelector } from "@/components/redux/hooks";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,10 +10,17 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useTheme } from "@/providers/theme-provider";
-import { useAppDispatch, useAppSelector } from "@/components/redux/hooks";
-import MyWishlist from "./my-wishlist";
+import {
+  LayoutDashboard,
+  LogOut,
+  ShoppingBag,
+  User,
+  UserRound,
+} from "lucide-react";
+import { FC } from "react";
+import { Link, useLocation } from "react-router-dom";
 import MyCart from "./my-cart";
-import NavFilterSheet from "@/components/common/shop/nav-filter-sheet";
+import MyWishlist from "./my-wishlist";
 
 interface NavItem {
   label: string;
@@ -36,7 +36,6 @@ const navItems: NavItem[] = [
 const Navbar: FC = () => {
   const location = useLocation();
   const { theme } = useTheme();
-  const dispatch = useAppDispatch();
   const { user } = useAppSelector((state) => state.auth);
   const handleLogout = () => {
     // dispatch(signOut());
