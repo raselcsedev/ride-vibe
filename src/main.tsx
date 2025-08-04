@@ -9,10 +9,16 @@ import "react-photo-view/dist/react-photo-view.css";
 import "react-inner-image-zoom/lib/styles.min.css";
 import router from "./routes/index.tsx";
 import { RouterProvider } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "./components/redux/store.ts";
+import { Toaster } from "sonner";
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
+    <Provider store={store}>
     <ThemeProvider>
       <RouterProvider router={router} />
+      <Toaster position="top-right" />
     </ThemeProvider>
+    </Provider>
   </StrictMode>
 );

@@ -4,10 +4,11 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { Link } from "react-router-dom";
 import Heading from "@/components/reusable/heading";
-import { mainItem } from "@/components/dummy-data/data";
 import ProductCard from "../shop/product-card";
+import { useGetProductQuery } from "@/components/redux/api/productApi";
 
 export default function TopSelling() {
+  const { data: products } = useGetProductQuery({});
   return (
     <section className="w-full py-8">
       <div className="flex justify-between items-end relative">
@@ -48,8 +49,8 @@ export default function TopSelling() {
             1024: { slidesPerView: 4 },
           }}
         >
-          {mainItem?.length > 0 &&
-            mainItem?.map((item: any, idx: any) => (
+          {products?.length > 0 &&
+            products?.map((item: any, idx: any) => (
               <SwiperSlide key={idx}>
                 <ProductCard product={item} />
               </SwiperSlide>
