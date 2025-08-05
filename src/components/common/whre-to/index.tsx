@@ -36,8 +36,8 @@ export default function WhereWork() {
         </div>
       </div>
       <img
-        className="object-cover hidden md:block ml-30 h-[500px] w-[40%] xl:w-[50%]"
-        src="/where-to-work-banner.png"
+        className="object-cover hidden md:block ml-30 h-[500px] w-[40%] xl:w-[70%]"
+        src="/why-ride-banner.png"
         alt="Workwear promotional banner"
       />
     </div>
