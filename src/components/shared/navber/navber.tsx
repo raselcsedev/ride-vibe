@@ -1,6 +1,6 @@
 import NavFilterSheet from "@/components/common/shop/nav-filter-sheet";
 import { ModeToggle } from "@/components/mode-toggle";
-import { useAppSelector } from "@/components/redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/components/redux/hooks";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -21,6 +21,8 @@ import { FC } from "react";
 import { Link, useLocation } from "react-router-dom";
 import MyCart from "./my-cart";
 import MyWishlist from "./my-wishlist";
+import { signOut } from "@/components/redux/features/auth/authSlice";
+
 
 interface NavItem {
   label: string;
@@ -35,8 +37,12 @@ const navItems: NavItem[] = [
 
 const Navbar: FC = () => {
   const location = useLocation();
-  const { theme } = useTheme();
+  const { theme } = useTheme();  
+  const dispatch = useAppDispatch();
   const { user } = useAppSelector((state) => state.auth);
+  const handleLogout = () => {
+    dispatch(signOut());
+  };
 
   const isSystemDark = window.matchMedia(
     "(prefers-color-scheme: dark)"
@@ -112,7 +118,7 @@ const Navbar: FC = () => {
                   <DropdownMenuSeparator />
                   <DropdownMenuItem
                     className="cursor-pointer text-primary"
-                    
+                    onClick={handleLogout}
                   >
                     <LogOut className="mr-2 h-4 w-4" />
                     <span>Log out</span>
