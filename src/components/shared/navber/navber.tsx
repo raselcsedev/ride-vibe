@@ -37,9 +37,6 @@ const Navbar: FC = () => {
   const location = useLocation();
   const { theme } = useTheme();
   const { user } = useAppSelector((state) => state.auth);
-  const handleLogout = () => {
-    // dispatch(signOut());
-  };
 
   const isSystemDark = window.matchMedia(
     "(prefers-color-scheme: dark)"
@@ -115,7 +112,7 @@ const Navbar: FC = () => {
                   <DropdownMenuSeparator />
                   <DropdownMenuItem
                     className="cursor-pointer text-primary"
-                    onClick={handleLogout}
+                    
                   >
                     <LogOut className="mr-2 h-4 w-4" />
                     <span>Log out</span>
