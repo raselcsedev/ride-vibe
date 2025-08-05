@@ -1,3 +1,4 @@
+// components/redux/api/productApi.ts
 import { tagTypes } from "../tag-types";
 import { baseApi } from "./baseApi";
 
@@ -9,9 +10,9 @@ const productApi = baseApi.injectEndpoints({
         method: "GET",
         params: arg,
       }),
-      providesTags:[tagTypes.product]
+      providesTags: [tagTypes.product],
     }),
-     singleProduct: build.query({
+    singleProduct: build.query({
       query: (id: string) => ({
         url: `/product/${id}`,
         method: "GET",
@@ -21,7 +22,4 @@ const productApi = baseApi.injectEndpoints({
   }),
 });
 
-export const {
- useGetProductQuery,
- useSingleProductQuery
-} = productApi
+export const { useGetProductQuery, useSingleProductQuery } = productApi;

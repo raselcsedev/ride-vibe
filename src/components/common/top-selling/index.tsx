@@ -8,7 +8,11 @@ import ProductCard from "../shop/product-card";
 import { useGetProductQuery } from "@/components/redux/api/productApi";
 
 export default function TopSelling() {
-  const { data: products } = useGetProductQuery({});
+  const { data, isLoading, isError } = useGetProductQuery({});
+  const products = data ?? [];
+
+  if (isLoading) return <p>Loading...</p>;
+  if (isError) return <p>Failed to load products</p>;
   return (
     <section className="w-full py-8">
       <div className="flex justify-between items-end relative">
